@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="144dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/movie_view_border"
+        android:elevation="12dp" />
+
+
+    <ImageView
+        android:id="@+id/movie_thumbnail"
+        android:layout_width="102dp"
+        android:layout_height="104dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/movie_title"
+        android:layout_marginStart="18dp"
+        android:contentDescription="@string/movie_thumbnail"
+        android:scaleType="fitCenter"
+        android:src="@drawable/noimageavailable"
+        android:elevation="13dp"/>
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="233dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="-250dp"
+        android:layout_marginTop="46dp"
+        android:layout_toEndOf="@+id/video_view"
+        android:text="@string/movie_title"
+        android:textSize="24sp"
+        android:elevation="13dp"/>
+
+
+    <TextView
+        android:id="@+id/movie_descr_short"
+        android:layout_width="235dp"
+        android:layout_height="37dp"
+        android:layout_alignStart="@+id/movie_title"
+        android:layout_below="@+id/movie_title"
+        android:layout_marginTop="5dp"
+        android:layout_toEndOf="@+id/video_view"
+        android:text="@string/short_movie_description"
+        android:elevation="13dp"/>
+
+    <TextView
+        android:id="@+id/more_info_text"
+        android:layout_width="233dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/movie_thumbnail"
+        android:layout_alignStart="@+id/movie_title"
+        android:layout_toEndOf="@+id/video_view"
+        android:text="@string/more_info"
+        android:textSize="18sp"
+        android:elevation="13dp"/>
+
+</RelativeLayout>

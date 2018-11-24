@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageButton
+        android:id="@+id/playing_now_imgbtn"
+        android:layout_width="148dp"
+        android:layout_height="143dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/movies_playing"
+        android:scaleType="fitCenter"
+        android:src="@drawable/cinemaico"
+        app:layout_constraintBottom_toTopOf="@+id/playing_now_text"
+        app:layout_constraintEnd_toStartOf="@+id/upcoming_imgbtn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/upcoming_imgbtn"
+        android:layout_width="148dp"
+        android:layout_height="143dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/upcoming_movies"
+        android:scaleType="fitCenter"
+        android:src="@drawable/upcomingico"
+        app:layout_constraintBottom_toTopOf="@+id/upcoming_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playing_now_imgbtn"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/playing_now_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginLeft="47dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/playing_now"
+        app:layout_constraintBottom_toTopOf="@+id/about_us_imgbtn"
+        app:layout_constraintEnd_toStartOf="@+id/upcoming_text"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playing_now_imgbtn" />
+
+    <TextView
+        android:id="@+id/upcoming_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/upcoming_movies_text"
+        app:layout_constraintBottom_toTopOf="@+id/about_us_imgbtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/playing_now_text"
+        app:layout_constraintTop_toBottomOf="@+id/upcoming_imgbtn" />
+
+    <ImageButton
+        android:id="@+id/about_us_imgbtn"
+        android:layout_width="148dp"
+        android:layout_height="143dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginLeft="118dp"
+        android:layout_marginRight="118dp"
+        android:layout_marginStart="118dp"
+        android:contentDescription="@string/about_us"
+        android:scaleType="fitCenter"
+        android:src="@drawable/aboutusico"
+        app:layout_constraintBottom_toTopOf="@+id/about_us_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/about_us_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="163dp"
+        android:layout_marginLeft="164dp"
+        android:layout_marginRight="163dp"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/about_us"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/about_us_imgbtn" />
+</android.support.constraint.ConstraintLayout>

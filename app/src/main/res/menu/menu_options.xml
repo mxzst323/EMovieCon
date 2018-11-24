@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/curr_movies_menu"
+        android:title="@string/movies_playing" />
+    <item
+        android:id="@+id/upcoming_movies_menu"
+        android:title="@string/upcoming_movies" />
+    <item
+        android:id="@+id/about_us_menu"
+        android:title="@string/about_us" />
+</menu>

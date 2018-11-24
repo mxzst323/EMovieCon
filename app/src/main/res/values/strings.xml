@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">EMovieCon</string>
+    <string name="splash_img_descr">EMovieCon Splash Image</string>
+    <string name="movies_playing">Movies Playing</string>
+    <string name="upcoming_movies">Upcoming Movies</string>
+    <string name="playing_now">Playing Now!</string>
+    <string name="upcoming_movies_text">Upcoming Movies!</string>
+    <string name="about_us">About Us</string>
+    <string name="movie_title">Temp Movie Title</string>
+    <string name="short_movie_description">Short Movie Description short</string>
+    <string name="movie_thumbnail">Movie thumbnail for the movie view</string>
+    <string name="more_info">Click For More Info...</string>
+</resources>
