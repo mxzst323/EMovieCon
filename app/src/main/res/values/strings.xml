@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">EMovieCon</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">EMovieCon</string>
+    <string name="nav_header_subtitle">null@null.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="splash_img_descr">EMovieCon Splash Image</string>
+    <string name="movies_playing">Movies Playing</string>
+    <string name="upcoming_movies">Upcoming Movies</string>
+    <string name="playing_now">Playing Now!</string>
+    <string name="upcoming_movies_text">Upcoming Movies!</string>
+    <string name="about_us">About Us</string>
+    <string name="movie_title">Temp Movie Title</string>
+    <string name="short_movie_description">Short Movie Description short</string>
+    <string name="movie_thumbnail">Movie thumbnail for the movie view</string>
+    <string name="more_info">Click For More Info&#8230;</string>
+    <string name="extra_informaiton">Extra Informaiton</string>
+    <string name="movie_description_full">Movie Description Full</string>
+    <string name="movie_release">Release Date: </string>
+    <string name="movie_pop">Popularity Rating: </string>
+    <string name="movie_voting">Voting Average: </string>
+    <string name="youtube_videos">YouTube Videos</string>
+    <string name="mail_on_emoviecon_movie_com">Mail us at : null@null.com</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="have_questions_or_comments_contact_us">Have questions or comments? Contact us!</string>
+    <string name="about_us_details">Emoviecon is an app that has access to upcoming movies, now playing movies, popular, and latest movie lists.
+        Movie information is presented for popularity, votecount, overview, title, posters, backdrops, and related videos.
+        EMovieCon is focused on the efficiency of movie information, which is why we chose TheMovieDB to query our information through JSON strings. </string>
+    <string name="refresh_lists">Refresh Lists</string>
+    <string name="home">Home</string>
+    <string name="movie_details">Movie Details</string>
+    <string name="related_youtube"><b>Related YouTube Videos</b></string>
+    <string name="banner_for_the_main_activity_of_the_application">Banner for the main activity of the application</string>
+    <string name="settings">Settings</string>
+    <string name="max_page_count">Max Page Count</string>
+    <string name="saved_max_pages_key">4</string>
+</resources>

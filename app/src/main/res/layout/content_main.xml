@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg"
+        tools:context=".MainActivity">
+
+        <TextView
+            android:id="@+id/refresh_list_text"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginStart="48dp"
+            android:text="@string/refresh_lists"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/refresh_list_imgbtn" />
+
+        <ImageButton
+            android:id="@+id/refresh_list_imgbtn"
+            android:layout_width="148dp"
+            android:layout_height="143dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/about_us"
+            android:scaleType="fitCenter"
+            android:src="@drawable/refresh"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playing_now_text" />
+
+        <ImageButton
+            android:id="@+id/playing_now_imgbtn"
+            android:layout_width="148dp"
+            android:layout_height="143dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/movies_playing"
+            android:scaleType="fitCenter"
+            android:src="@drawable/cinemaico"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/bannerImg" />
+
+        <ImageButton
+            android:id="@+id/upcoming_imgbtn"
+            android:layout_width="148dp"
+            android:layout_height="143dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="4dp"
+            android:contentDescription="@string/upcoming_movies"
+            android:scaleType="fitCenter"
+            android:src="@drawable/upcomingico"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/playing_now_imgbtn"
+            app:layout_constraintTop_toBottomOf="@+id/bannerImg" />
+
+        <TextView
+            android:id="@+id/playing_now_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/playing_now"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@+id/refresh_list_imgbtn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/playing_now_imgbtn" />
+
+        <TextView
+            android:id="@+id/upcoming_text"
+            android:layout_width="131dp"
+            android:layout_height="19dp"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="107dp"
+            android:layout_marginTop="4dp"
+            android:text="@string/upcoming_movies_text"
+            android:textColor="@android:color/black"
+            app:layout_constraintBottom_toTopOf="@+id/about_us_imgbtn"
+            app:layout_constraintStart_toEndOf="@+id/playing_now_text"
+            app:layout_constraintTop_toBottomOf="@+id/upcoming_imgbtn" />
+
+        <ImageButton
+            android:id="@+id/about_us_imgbtn"
+            android:layout_width="148dp"
+            android:layout_height="143dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="56dp"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/about_us"
+            android:scaleType="fitCenter"
+            android:src="@drawable/aboutusico"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/refresh_list_imgbtn"
+            app:layout_constraintTop_toBottomOf="@+id/upcoming_text" />
+
+        <TextView
+            android:id="@+id/about_us_text"
+            android:layout_width="57dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="129dp"
+            android:text="@string/about_us"
+            android:textColor="@android:color/black"
+            app:layout_constraintStart_toEndOf="@+id/refresh_list_text"
+            app:layout_constraintTop_toBottomOf="@+id/about_us_imgbtn" />
+
+        <ImageView
+            android:id="@+id/bannerImg"
+            android:layout_width="wrap_content"
+            android:layout_height="112dp"
+            android:layout_marginTop="60dp"
+            android:contentDescription="@string/banner_for_the_main_activity_of_the_application"
+            android:src="@drawable/symbol"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
