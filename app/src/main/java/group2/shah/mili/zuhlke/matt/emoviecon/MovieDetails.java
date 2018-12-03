@@ -21,7 +21,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+/**
+ * Movie Details Activity started after selecting a movie from the recycler view
+ *
+ * @author Matt Zuhlke
+ * @author Mili Shah
+ * @version 1.0
+ */
 public class MovieDetails extends Activity {
+
+    /**
+     * Override Create Sets the movie id from the extra
+     * variable sent from previous activity and list to search on
+     *
+     * @param savedInstanceState Old data saved from a previous state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +47,14 @@ public class MovieDetails extends Activity {
         getMovieFromList(movieID, movieCount);
     }
 
+    /**
+     * Searches the movies based on the movie id and moviecount for List
+     * position. This splits it in half so searching is faster since this
+     * activity is used for both now playing and upcoming
+     *
+     * @param movieID    id From TheMovieDB to query and get data on
+     * @param movieCount List position to get the movie and cross examine with the movieID
+     */
     private void getMovieFromList(int movieID, int movieCount) {
         List<EMovieCon> npMovies = TheMovieDBWrapper.getNowPlayingMovies();
         List<EMovieCon> ucMovies = TheMovieDBWrapper.getUpcomingMovies();
@@ -53,6 +75,12 @@ public class MovieDetails extends Activity {
         }
     }
 
+    /**
+     * Sets the movie title, overview,extra information text, poster,
+     * builds related videos as links and grabs backdrops
+     *
+     * @param movie EMovieCon this activity is displaying
+     */
     public void setMovieInformation(EMovieCon movie) {
         Resources resources = getResources();
         TextView title = findViewById(R.id.movie_details_title);

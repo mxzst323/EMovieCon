@@ -13,12 +13,25 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+/**
+ * EMovieConActivity Class to start every activity that extends this class with the header and
+ * navigation menu
+ *
+ * @author Matt Zuhlke
+ * @version 1.0
+ */
 @SuppressLint("Registered")
 public class EMovieConActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static int activityId;
 
+    /**
+     * Override the onCreate method in AppCompatActivity to add the drawer layout for the navigation
+     * menu. Sets the toolbar instead of using the theme.
+     *
+     * @param savedInstanceState Old data saved from a previous state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +49,9 @@ public class EMovieConActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    /**
+     * Captures the back button to close the drawer back to frame
+     */
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -46,6 +62,13 @@ public class EMovieConActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Handles an item selection from the UI
+     *
+     * @param item Item click on by user from the UI
+     * @return true after the drawer is closed
+     * false is swollowed
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

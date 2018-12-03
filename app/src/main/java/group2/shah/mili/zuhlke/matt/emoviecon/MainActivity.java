@@ -7,10 +7,29 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+/**
+ * Main Activity started first after the splash screen
+ * Contains large image buttons defined onclick actions
+ * to start activity intents
+ *
+ * @author Matt Zuhlke
+ * @author Mili Shah
+ * @version 1.0
+ */
 public class MainActivity extends EMovieConActivity {
 
+    /**
+     * Initializing context in class to use in internal OnClickListeners
+     * for sharedpreferences and gui updates
+     */
     public Context context = this;
 
+    /**
+     * Override of create function to set activity layout to menu and
+     * layout with customizing the imagebutton onclick events
+     *
+     * @param savedInstanceState Old data saved from a previous state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         EMovieConActivity.activityId = R.layout.activity_main;

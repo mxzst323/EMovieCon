@@ -13,10 +13,26 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
+/**
+ * Settings activity that extends EMovieConActivity to add menu functionality
+ * Adds Setting for page query count. to limit how many results are available
+ * WIP - More can be added
+ *
+ * @author Matt Zuhlke
+ * @author Mili Shah
+ * @version 1.0
+ */
 public class SettingsActivity extends EMovieConActivity {
 
     public Context context = this;
 
+    /**
+     * Override onCreate to set a spinner and load the value into the SharedPreferences
+     * This is used in TheMovieDBWrapper to know how many pages to query set onSelectedListener
+     * accordingly.
+     *
+     * @param savedInstanceState Old data saved from a previous state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         EMovieConActivity.activityId = R.layout.activity_settings;

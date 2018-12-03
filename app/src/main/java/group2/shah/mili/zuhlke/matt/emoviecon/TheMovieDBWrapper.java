@@ -20,33 +20,29 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Wrapper class that interfaces with TheMovieDB all calls and parsing should come from this class
+ *
+ * @author Matt Zuhlke
+ * @author Mili Shah
+ * @version 1.0
+ */
 public class TheMovieDBWrapper {
 
     private static List<EMovieCon> nowPlayingMoviesList = new ArrayList<>();
     private static List<EMovieCon> upcomingMoviesList = new ArrayList<>();
 
-    private static final String apiKey = "7dbb01c9bbcc61c91e0aeb60fae81f59"; //Unsecure
+    private static final String apiKey = "7dbb01c9bbcc61c91e0aeb60fae81f59"; //TODO - UNSECURE
     private static final String nowPlayingURL = "http://api.themoviedb.org/3/movie/now_playing?api_key=" + apiKey + "&language=en-US&page=";
     private static final String upcomingURL = "http://api.themoviedb.org/3/movie/upcoming?api_key=" + apiKey + "&language=en-US&page=";
 
-    private static String readAll(Reader rd) throws IOException {
-        StringBuilder sb = new StringBuilder();
-        int cp;
-        while ((cp = rd.read()) != -1) {
-            sb.append((char) cp);
-        }
-        return sb.toString();
-    }
-
-    private static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
-        try (BufferedReader br = new BufferedReader(
-                new InputStreamReader(new URL(url).openStream(), StandardCharsets.UTF_8))) {
-            String jsonText;
-            jsonText = readAll(br);
-            return new JSONObject(jsonText);
-        }
-    }
-
+    /**
+     * Requests, gets and sets the backdrops for a particular movie. Calls getMvoiePostBitMap
+     * to actually get the file from the built string.
+     *
+     * @param id movie id to search TheMovieDB on
+     * @return ArrayList<BitMap> an array list of bitmaps (backdrops) that were found for the movie
+     */
     public static ArrayList<Bitmap> getBackdrops(int id) {
         final String imageCall = "https://api.themoviedb.org/3/movie/" + id + "/images?api_key=" + apiKey + "&include_image_language=en";
         final ArrayList<Bitmap> imgs = new ArrayList<>();
@@ -87,6 +83,12 @@ public class TheMovieDBWrapper {
             return null;
     }
 
+    /**
+     * Gets an image for a movie. For both posters and backdrops
+     *
+     * @param photoURL URL built as a request for the exact picture to be pulled
+     * @return Bitmap picture that was found and returned
+     */
     public static Bitmap getMoviePostBitMap(final URL photoURL) {
         if (photoURL != null) {
             final ArrayList<Bitmap> pics = new ArrayList<>();
@@ -113,15 +115,33 @@ public class TheMovieDBWrapper {
         }
     }
 
+    /**
+     * Getter for the NowPlaying Movies List
+     *
+     * @return List<EMovieCon> List for Now Playing Movies
+     */
     public static List<EMovieCon> getNowPlayingMovies() {
         return nowPlayingMoviesList;
     }
 
+    /**
+     * Getter for the Upcoming Movies List
+     *
+     * @return List<EMovieCon> List for upcoming Movies
+     */
     public static List<EMovieCon> getUpcomingMovies() {
         return upcomingMoviesList;
     }
 
-    // Getting youtube vids separately to limit down on requests since not every movie will be clicked on for details
+    /**
+     * Gets and builds the YouTube links to display as related videos. Also sends back the
+     * name of the video to identify it.
+     *
+     * @param id movie id to search videos on
+     * @return ArrayList<ArrayList       <       String>> An arraylist of arraylists the inner array list has the
+     * name and the url while the outter array lists holds multiple instances of these two
+     * variables
+     */
     public static ArrayList<ArrayList<String>> getYouTubeLinks(int id) {
         final String videoCall = "https://api.themoviedb.org/3/movie/" + id + "/videos?api_key=" + apiKey + "&language=en-US";
         final ArrayList<ArrayList<String>> vids = new ArrayList<>();
@@ -164,6 +184,14 @@ public class TheMovieDBWrapper {
         return vids;
     }
 
+    /**
+     * Gets movies from the JSON url call and sets the variables for EMovieCon accordingly.
+     * Returns them as a list.
+     *
+     * @param url     JSON call to get a list of movies
+     * @param maxPage The amount of pages to query on - 11+ is maximum from the json string
+     * @return List<EMovieCon> a list of EMOvieCon instances with variables set
+     */
     private static List<EMovieCon> grabMovies(final String url, final int maxPage) {
         final List<List<EMovieCon>> movieList = new ArrayList<>();
         Thread t = new Thread(new Runnable() {
@@ -216,18 +244,71 @@ public class TheMovieDBWrapper {
         }
     }
 
+    /**
+     * Reads all of the data from the reader and builds a json string
+     *
+     * @param rd Buffered reader that is used to read data
+     * @return String built from the reader
+     * @throws IOException if the reader does not read a line its expecting
+     */
+    private static String readAll(Reader rd) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        int cp;
+        while ((cp = rd.read()) != -1) {
+            sb.append((char) cp);
+        }
+        return sb.toString();
+    }
+
+    /**
+     * Reads the JSONObject from the supplied url. Creates a stream and calls readAll to
+     * actually perform the read.
+     *
+     * @param url String that is used to call which is created into a connection stream
+     * @return JSONObject newly created with the texted built from readAll
+     * @throws IOException   If the Intput stream could not be read
+     * @throws JSONException If the JSON string could not be made into an object
+     */
+    private static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
+        try (BufferedReader br = new BufferedReader(
+                new InputStreamReader(new URL(url).openStream(), StandardCharsets.UTF_8))) {
+            String jsonText;
+            jsonText = readAll(br);
+            return new JSONObject(jsonText);
+        }
+    }
+
+    /**
+     * Gets and sets the Now Playing Movie List depending on the maximum amount of pages
+     * to query on.
+     *
+     * @param maxPage The amount of pages to query movie results on
+     */
+    private static void setNowPlayingMovies(int maxPage) {
+        nowPlayingMoviesList = grabMovies(nowPlayingURL, maxPage);
+    }
+
+    /**
+     * Gets and sets the Upcoming Movie List depending on the maximum amount of pages
+     * to query on.
+     *
+     * @param maxPage The amount of pages to query movie results on
+     */
+    private static void setUpcomingMovies(int maxPage) {
+        upcomingMoviesList = grabMovies(upcomingURL, maxPage);
+    }
+
+    /**
+     * Updates all lists used. If more lists are added, they should be added here also to
+     * work as a one button update.
+     *
+     * @param appContext The application context to get the max pages to query on from the
+     *                   Shared preferences
+     */
     public static void updateLists(Context appContext) {
         final SharedPreferences sharedPref = appContext.getSharedPreferences("EMovieConPrefs", 0);
         int maxPage = sharedPref.getInt("saved_max_pages_key", 3);
         setNowPlayingMovies(maxPage);
         setUpcomingMovies(maxPage);
-    }
-
-    private static void setNowPlayingMovies(int maxPage) {
-        nowPlayingMoviesList = grabMovies(nowPlayingURL, maxPage);
-    }
-
-    private static void setUpcomingMovies(int maxPage) {
-        upcomingMoviesList = grabMovies(upcomingURL, maxPage);
     }
 }
