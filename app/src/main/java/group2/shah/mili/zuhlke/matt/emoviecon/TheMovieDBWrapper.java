@@ -32,7 +32,7 @@ public class TheMovieDBWrapper {
     private static List<EMovieCon> nowPlayingMoviesList = new ArrayList<>();
     private static List<EMovieCon> upcomingMoviesList = new ArrayList<>();
 
-    private static final String apiKey = "7dbb01c9bbcc61c91e0aeb60fae81f59"; //TODO - UNSECURE
+    private static final String apiKey = "7dbb01c9bbcc61c91e0aeb60fae81f59";
     private static final String nowPlayingURL = "http://api.themoviedb.org/3/movie/now_playing?api_key=" + apiKey + "&language=en-US&page=";
     private static final String upcomingURL = "http://api.themoviedb.org/3/movie/upcoming?api_key=" + apiKey + "&language=en-US&page=";
 

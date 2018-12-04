@@ -62,15 +62,16 @@ public class SettingsActivity extends EMovieConActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String pageNum = pages.get(position);
                 String[] splitStr = pageNum.split(Pattern.quote("("));
-                int newPageNum;
                 if (null != splitStr[0]) {
                     try {
-                        newPageNum = Integer.parseInt(splitStr[0]);
-                        editor.putInt("saved_max_pages_key", newPageNum);
-                        editor.apply();
+                        if (splitStr[0].contains("Max"))
+                            editor.putInt("saved_max_pages_key", 11);
+                        else
+                            editor.putInt("saved_max_pages_key", Integer.parseInt(splitStr[0]));
                     } catch (NumberFormatException nxe) {
-                        Log.e("EMovieCon", "Exception: Could not parse maxpage" + nxe.getMessage());
-                        editor.putInt("saved_max_pages_key", 11);
+                        Log.e("EMovieCon", "Exception: Could not parse maxpage using default" + nxe.getMessage());
+                        editor.putInt("saved_max_pages_key", 3);
+                    } finally {
                         editor.apply();
                     }
                 }
